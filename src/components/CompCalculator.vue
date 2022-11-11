@@ -43,7 +43,8 @@ export default {
       previous: null,
       current: '',
       operator: null,
-      operation: ''
+      operation: '',
+      isResult: false,
     }
   },
   methods: {
@@ -52,6 +53,7 @@ export default {
       this.previous = null;
       this.operator = null;
       this.operation = '';
+      this.isResult = false;
     },
     dot () {
       if (this.current.indexOf('.') === -1 && this.current.length > 0) {
@@ -64,6 +66,7 @@ export default {
         this.current = '';
         this.operation = '';
       }
+      if (this.isResult) this.clear();
       this.current = `${this.current}${number}`;
       
     },
@@ -97,7 +100,7 @@ export default {
         )}`;
         this.previous = null;
         this.operator = null;
-        this.operatorClicked = false;
+        this.isResult = true;
       }
     }
   }
