@@ -61,7 +61,7 @@ export default {
       }
     },
     append (number) {
-      if (this.operation.length > 0) {
+      if (this.operation!= null && this.operation.length > 0) {
         this.previous = this.current;
         this.current = '';
         this.operation = '';
@@ -93,7 +93,7 @@ export default {
       }
     },
     equal () {
-      if (this.previous.length > 0) {
+      if (this.previous != null && this.previous.length > 0) {
         this.current = `${this.operator(
           parseFloat(this.previous),
           parseFloat(this.current)
@@ -117,6 +117,7 @@ table {
   width: 100%;
   max-width: 400px;
   margin: auto;
+  text-align: center;
 }
 td {
   padding: 15px;
