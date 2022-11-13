@@ -49,26 +49,32 @@ export default {
   },
   methods: {
     clear () {
-      this.current = '';
       this.previous = null;
+      this.current = '';
       this.operator = null;
       this.operation = '';
       this.isResult = false;
     },
     dot () {
-      if (this.current.indexOf('.') === -1 && this.current.length > 0) {
-        this.append('.');
+      if (this.operator == null && this.current.indexOf('.') === -1 && this.current.length > 0)    
+        this.current = `${this.current}.`;
+      else if (this.previous != null) {
+        this.current = `${this.current}.`;
+        this.isResult = false;
       }
     },
     append (number) {
-      if (this.operation!= null && this.operation.length > 0) {
+      if (this.operator != null && this.operation.length > 0) {
         this.previous = this.current;
         this.current = '';
+        this.current = `${this.current}${number}`;
         this.operation = '';
+      } else if (this.isResult) {
+        this.current = `${number}`;
+        this.isResult = false;
+      } else {
+        this.current = `${this.current}${number}`;
       }
-      if (this.isResult) this.clear();
-      this.current = `${this.current}${number}`;
-      
     },
     compute (operation) {
       if (this.current.length > 0) {
@@ -100,6 +106,7 @@ export default {
         )}`;
         this.previous = null;
         this.operator = null;
+        this.operation = '';
         this.isResult = true;
       }
     }
