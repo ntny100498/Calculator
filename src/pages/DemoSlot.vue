@@ -1,10 +1,12 @@
 <template>
-  <h1>Demo Product</h1>
+  <h1>Demo Slot</h1>
+  <slot></slot>
+  <h1>Demo Slot</h1>
 </template>
 
 <script>
 export default {
-  name: 'CompProduct'
+  name: 'DemoSlot'
 }
 </script>
 

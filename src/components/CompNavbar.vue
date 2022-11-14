@@ -20,7 +20,7 @@
 
 <script>
 export default {
-  name: 'CompNav'
+  name: 'CompNavbar'
 }
 </script>
 

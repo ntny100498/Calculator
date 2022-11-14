@@ -1,13 +1,30 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
-import CompProduct from '@/components/CompProduct'
-import CompSlot from '@/components/CompSlot'
-import CompCalculator from '@/components/CompCalculator'
-
 const routes = [
-  { path: '/', component: CompCalculator},
-  { path: '/product', component: CompProduct},
-  { path: '/slot', component: CompSlot}
+  {
+    path: '/',
+    name: 'PageCalculator',
+    component: () => import('../pages/PageCalculator'),
+    meta: {
+      layout: 'User'
+    }
+  },
+  {
+    path: '/product',
+    name: 'PageProduct',
+    component: () => import('../pages/PageProduct'),
+    meta: {
+      layout: 'Blank'
+    }
+  },
+  {
+    path: '/slot',
+    name: 'PageSlot',
+    component: () => import('../pages/PageSlot'),
+    meta: {
+      layout: 'User'
+    }
+  }
 ]
 
 const router = createRouter({

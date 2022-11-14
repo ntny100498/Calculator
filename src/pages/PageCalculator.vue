@@ -36,8 +36,9 @@
 </template>
 
 <script>
+
 export default {
-  name: 'CompCalculator',
+  name: 'PageCalculator',
   data () {
     return {
       previous: null,
